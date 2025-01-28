@@ -1,15 +1,3 @@
-let myName = 'Rena';
-document.write(myName);
+let pokemonList = [{name: "pikachu", height: 0.4, type: "electric"}, {name: "snorlax", height: 2.1, type: "normal"}, {name: "jigglypuff", height: 0.5, type: ["fairy", "normal"]}];
 
-//Heyooooooo this is a single light comment
-/*This
-    is
-    a
-    multi-line
-    comment
-    */
-
-
-/*let simpleAddition = 2 + 2;
-document.write(simpleAddition);
-
+console.log(pokemonList);
