@@ -1,25 +1,30 @@
 let pokemonList = [
-    {name: " Pikachu ",
+    {
+        name: " Pikachu ",
         height: 0.4,
-        type: "electric"},
-    {name: " Snorlax ",
+        type: "electric"
+    },
+    {
+        name: " Snorlax ",
         height: 2.1,
-        type: "normal"},
-    {name: " Jigglypuff ",
+        type: "normal"
+    },
+    {
+        name: " Jigglypuff ",
         height: 0.7,
-        type: ["fairy", "normal"]}
+        type: ["fairy", "normal"]
+    }
 ];
 
 
-for (let i = 0; i <  pokemonList.length; i++) {
+for (let i = 0; i < pokemonList.length; i++) {
 
     if (pokemonList[i].height > 1) {
-        document.write (pokemonList[i].name + pokemonList[i].height + " Wow, that is a big Pokemon!")
-    }
-
-    document.write(pokemonList[i].name +
-        " (Height: " + pokemonList[i].height + ")" 
-    );
-
+        document.write(pokemonList[i].name + " (Height: " + pokemonList[i].height + " -Wow, that is a big Pokemon!" + ")")
+    } else (
+        document.write(pokemonList[i].name +
+            " (Height: " + pokemonList[i].height + ")"
+        )
+    )
 }
 
