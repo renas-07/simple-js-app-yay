@@ -27,6 +27,7 @@ var pokemonRepository = (function () {
     button.classList.add("button-class");
     button.addEventListener('click', function (event) {
       showDetails(pokemon);
+      console.log(event);
     });
     listPokemon.appendChild(button);
     pokemonUnorderedList.appendChild(listPokemon);
@@ -66,7 +67,7 @@ var pokemonRepository = (function () {
   }
 
   function showDetails(pokemon) {
-    pokemonRepository.loadDetails(pokemon).then(function(){
+    pokemonRepository.loadDetails(pokemon).then(function () {
       console.log(pokemon);
     });
   }
@@ -91,8 +92,8 @@ pokemonRepository.loadList().then(function () {
 // console.log(pokemonRepository.getAll());
 // console.log(pokemonRepository.add);
 
-pokemonRepository.loadList().then(function () {
-  pokemonRepository.getAll().forEach(function (pokemon) {
-    pokemonRepository.addListItem(pokemon);
-  });
-});
+// pokemonRepository.loadList().then(function () {
+//   pokemonRepository.getAll().forEach(function (pokemon) {
+//     pokemonRepository.addListItem(pokemon);
+//   });
+// });
