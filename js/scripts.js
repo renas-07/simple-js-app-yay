@@ -27,7 +27,7 @@ let pokemonRepository = (function () {
     button.classList.add("button-class");
     button.addEventListener('click', function (event) {
       showDetails(pokemon);
-      console.log(event);
+      // showModal(title, text, img);
     });
     listPokemon.appendChild(button);
     pokemonUnorderedList.appendChild(listPokemon);
@@ -66,9 +66,61 @@ let pokemonRepository = (function () {
     });
   }
 
+  function showModal(title, text, img){
+    let modalContainer = document.querySelector(".modal-container");
+    modalContainer.innerHTML = '';
+
+    let modal = document.createElement('div');
+    modal.classList.add('modal');
+
+    let closeButtonElement = document.createElement('button');
+        closeButtonElement.classList.add('modal-close');
+        closeButtonElement.innerText = 'Close';
+        closeButtonElement.addEventListener('click', hideModal);
+
+        let titleElement = document.createElement('h1');
+        titleElement.innerText = title;
+
+        let contentElement = document.createElement('p');
+        contentElement.innerText = text;
+
+        let imgElement = document.createElement('img');
+        contentElement.innerHTML = img;
+
+        modal.appendChild(closeButtonElement);
+        modal.appendChild(titleElement);
+        modal.appendChild(contentElement);
+        modalContainer.appendChild(modal);
+
+        modal.classList.add('is-visible');
+
+
+
+        // modalTitle.innerText = title;
+        // pokemonHeight = text;
+        // pokemonImage.setAttribute('src', img);
+  }
+
+  function hideModal(){
+    let modalContainer = document.querySelector('#modal-container');
+    modalContainer.classList.remove('is-visible');
+  
+    if (dialogPromiseReject) {
+      dialogPromiseReject();
+      dialogPromiseReject = null;
+    }
+  }
+
+
   function showDetails(pokemon) {
     pokemonRepository.loadDetails(pokemon).then(function () {
       console.log(pokemon);
+      showModal(
+        pokemon.name,
+        'Height: ' + pokemon.height,
+        pokemon.imageUrl
+      );
+      // $('#pokemonModal').modal('show');
     });
   }
 
